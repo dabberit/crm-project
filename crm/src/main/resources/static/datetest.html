@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base th:href="${#request.getContextPath()}+'/'">
+    <!--    因为bootstrap框架依赖于jQuery框架，因此在bootstrap之前须先引入jQuery框架，顺序很重要-->
+    <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+    <!--    因为该日历插件依赖于bootstrap框架，所以插件引入之前必须先引入bootstrap框架，顺序很重要-->
+    <link rel="stylesheet" href="jquery/bootstrap_3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
+    <!--    引入css文件-->
+    <link rel="stylesheet" href="jquery/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <!--    引入js文件-->
+    <script type="text/javascript"
+            src="jquery/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+    <!--    引入语言包-->
+    <script type="text/javascript"
+            src="jquery/bootstrap-datetimepicker-master/locale/bootstrap-datetimepicker.zh-CN.js"></script>
+    <title>日历插件演示</title>
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleDate").datetimepicker({
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd',
+                minView: 'month',
+                initialDate: new Date(),
+                autoclose: true
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="text" id="sampleDate">
+</body>
+</html>

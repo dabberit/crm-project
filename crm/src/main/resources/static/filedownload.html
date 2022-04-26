@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件下载测试</title>
+  <base th:href="${#request.getContextPath()}+'/'">
+  <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#fileDownload").click(function () {
+        window.location.href = "workbench/activity/fileDownload.do";
+      })
+    })
+  </script>
+</head>
+<body>
+<button type="button" id="fileDownload">下载Excel文件</button>
+</body>
+</html>
