@@ -22,4 +22,6 @@ public interface ActivityRemarkMapper {
     int insertActivityRemark(ActivityRemark remark);
 
     int deleteActivityRemarkById(String id);
+
+    int updateActivityRemarkById(ActivityRemark remark);
 }

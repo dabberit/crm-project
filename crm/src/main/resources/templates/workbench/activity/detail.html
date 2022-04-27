@@ -97,7 +97,7 @@
                     }
                 })
             })
-            $("#remarkDivList").on("click", "a[name=deleteA]", function () {
+            $("#remarkDivList").on("click", "a[name='deleteA']", function () {
                 var id = $(this).attr("remarkId");
                 $.ajax({
                     url: 'workbench/activity/deleteActivityRemarkById.do',
@@ -109,6 +109,38 @@
                     success: function (data) {
                         if (data.code == "1") {
                             $("#div_" + id).remove();
+                        } else {
+                            alert(data.message);
+                        }
+                    }
+                })
+            })
+            $("#remarkDivList").on("click","a[name='editA']",function () {
+                var id = $(this).attr("remarkId");
+                var noteContent = $("#div_" + id + " h5").text();
+
+                $("#remarkId").val(id);
+                $("#noteContent").val(noteContent);
+                $("#editRemarkModal").modal("show");
+            })
+
+            $("#updateRemarkBtn").click(function () {
+                var id = $("#remarkId").val();
+                var noteContent = $("#noteContent").val();
+
+                $.ajax({
+                    url: 'workbench/activity/updateActivityRemarkById.do',
+                    data: {
+                        id: id,
+                        noteContent: noteContent
+                    },
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.code == "1") {
+                            $("#div_" + id + " h5").text(noteContent);
+                            $("#div_" + id + " small").text(data.otherData.editTime + " 由[[${session.sessionUser.name}]]修改");
+                            $("#editRemarkModal").modal("hide");
                         } else {
                             alert(data.message);
                         }

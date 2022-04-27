@@ -10,4 +10,6 @@ public interface ActivityRemarkService {
     int insertActivityRemark(ActivityRemark remark);
 
     int deleteActivityRemarkById(String id);
+
+    int updateActivityRemarkById(ActivityRemark remark);
 }
